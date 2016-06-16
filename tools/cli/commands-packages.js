@@ -1649,6 +1649,22 @@ main.registerCommand({
   } else {
     upgradePackageNames = options.args;
   }
+  var upgradePackagesWithoutCordova = _.reject(upgradePackageNames, function (name) {
+    return name.split(':')[0] === 'cordova'; 
+  });
+  if (upgradePackagesWithoutCordova !== upgradePackageNames) {
+    // There are some cordova packages in the list to update.
+    // We should tell users how to update cordova packages.
+    Console.warn('Looks like you\'re trying to update cordova packages.');
+    Console.warn('To update cordova packages, run:');
+    Console.warn('  meteor add PLUGIN@VERSION');
+    Console.warn('where PLUGIN is your cordova package name and VERSION is, ' +
+                'for example: 1.0.0');
+    Console.warn('To look up the latest version of cordova-plugin-inappbrowser, run:');
+    Console.warn('  npm view PLUGIN version');
+    // Exclude cordova packages
+    upgradePackageNames = upgradePackagesWithoutCordova;
+  }
   // We want to use the project's release for constraints even if we are
   // currently running a newer release (eg if we ran 'meteor update --patch' and
   // updated to an older patch release).  (If the project has release 'none'
