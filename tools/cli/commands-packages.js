@@ -1657,7 +1657,7 @@ main.registerCommand({
     // We should tell users how to update cordova packages.
     Console.warn('Looks like you\'re trying to update cordova packages.');
     Console.warn('To update cordova packages, run:');
-    Console.warn('  meteor add PLUGIN@VERSION');
+    Console.warn('  meteor add cordova:PLUGIN@VERSION');
     Console.warn('where PLUGIN is your cordova package name and VERSION is, ' +
                 'for example: 1.0.0');
     Console.warn('To look up the latest version of cordova-plugin-inappbrowser, run:');
