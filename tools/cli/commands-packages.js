@@ -1655,8 +1655,8 @@ main.registerCommand({
   if (_.isEqual(upgradePackagesWithoutCordova, upgradePackageNames)) {
     // There are some cordova packages in the list to update.
     // We should tell users how to update cordova packages.
-    Console.warn('Looks like you\'re trying to update cordova packages.');
-    Console.warn('To update cordova packages, run:');
+    Console.warn("It appears that you're trying to upgrade a Cordova package.");
+    Console.warn('To perform this action, you should run:');
     Console.warn('  meteor add cordova:PLUGIN@VERSION');
     Console.warn('where PLUGIN is your cordova package name and VERSION is, ' +
                 'for example: 1.0.0');
