@@ -1652,7 +1652,7 @@ main.registerCommand({
   var upgradePackagesWithoutCordova = _.reject(upgradePackageNames, function (name) {
     return name.split(':')[0] === 'cordova'; 
   });
-  if (_.isEqual(upgradePackagesWithoutCordova, upgradePackageNames)) {
+  if (!_.isEqual(upgradePackagesWithoutCordova, upgradePackageNames)) {
     // There are some cordova packages in the list to update.
     // We should tell users how to update cordova packages.
     Console.warn("It appears that you're trying to upgrade a Cordova package.");
